@@ -1,0 +1,26 @@
+extends layout 
+
+block main 
+  form(action="/users/signin", method="post")
+    dl
+      dt
+        label(for="username") Username: 
+      dd 
+        input(type="text" name="username" placeholder="username" value=username) 
+    dl 
+      dt 
+        label(for="password") Password:
+      dd 
+        input(type="text" name="password" placeholder="password")
+
+    fieldset.actions
+      input(type="submit", value="Sign In")
+  
+block signIn
+  form(action="/users/signout", method="post") 
+    formset.actions 
+      if signedIn
+        p Signed in as #{username}
+        button Sign Out
+      else 
+        p You are not signed in.
